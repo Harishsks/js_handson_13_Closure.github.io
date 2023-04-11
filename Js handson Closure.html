@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS handson Closure</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">JS handson Closure</h1>
+    <h3><strong>Q1.</strong>" function counter(){ <br>
+        var counter = 0;<br>
+        <br>
+        function IncreaseCounter() {<br>
+        return counter += 1;<br>
+        };<br>
+        <br>
+        return IncreaseCounter;<br>
+        }<br>
+        <br>
+        var counter = counter();<br>
+        alert(counter());<br>
+        alert(counter());<br>
+        alert(counter());<br>
+        alert(counter());"
+    </h3>
+    <p><strong>Ans.</strong>[Output:1,2,3,4]</p>
+    <h3><strong>Q2.</strong>"let count = 0; <br>
+        (function () {<br>
+        if (count === 0) {<br>
+        let count = 1;<br>
+        console.log(count); // What is logged?<br>
+        }<br>
+        console.log(count); // What is logged?<br>
+        })();"<br></h3>
+    <p><strong>Ans.</strong>[Output:1,0]</p>
+    <p>Reason: when console.log(count) was count first time,it will print 1 because its comes under if condition and
+        when it was called
+        second time it searched the value which was out of the function scope so it accessed the let variable of
+        count i.e 0.</p>
+    <h3><strong>Q3.</strong>"for (var i = 0; i < 3; i++) { <br>
+            setTimeout(function log() {<br>
+            console.log(i); // What is logged?<br>
+            }, 1000);<br>
+            }"</h3>
+    <p><strong>Ans.</strong>[Output:3]</p>
+    <p>→Reason: While running the code in setTimeout. The function will be called from 0 index which
+        will fullfill the condition less than 3. So it will be printed 3 </p>
+    <h3><strong>Q4.</strong>Write a code to calculate area of a rectangle using inner function. In this case outer
+        function should accept parameter length and inner function should accept parameter breadth.</h3>
+    <p><strong>Ans.</strong>
+        function Abc(L){ <br>
+        function Def(B){<br>
+        return (L*B)<br>
+        }<br>
+        return B<br>
+        }<br>
+        console.log('Area of rectangle' +" "+ (10*5) )</p>
+    <h3><strong>Q5.</strong>Take a variable in outer function and create an inner function to increase the counter every
+        time it is called</h3>
+    <p><strong>Ans.</strong>function counter(){ <br>
+        var counter = 0;function counter(){ <br>
+        var counter = 0;<br>
+        function IncreaseCounter() {<br>
+        return counter += 1;<br>
+        };<br>
+        <br>
+        return IncreaseCounter;<br>
+        }<br>
+        var counter = counter();<br>
+        console.log(counter());<br>
+        console.log(counter());<br>
+        console.log(counter());<br>
+        console.log(counter());"<br>
+        function IncreaseCounter() {<br>
+        return counter += 1;<br>
+        };<br>
+
+        return IncreaseCounter;<br>
+        }<br>
+        var counter = counter();<br>
+        console.log(counter());<br>
+        console.log(counter());<br>
+        console.log(counter());<br>
+        console.log(counter());"
+    </p>
+    <h3><strong>Q6.</strong>"Print Output <br>
+        <br>
+        var a = 12;<br>
+        (function () {<br>
+        alert(a);<br>
+        })();"
+    </h3>
+    <p><strong>Ans.</strong>[Output:12] It will show as a popup</p>
+    <h3><strong>Q7.</strong> var a = 10; <br>
+        var x = (function () {<br>
+      var a = 12;<br>
+      return function () {<br>
+        alert(a);<br>
+      };<br>
+    })();<br>
+    x();<br></h3>
+    <p><strong>Ans.</strong>[Output:12] It will show as a popup.(var a=10 will be updated as var a=12, because var is a global scope)</p>
+    <h3><strong>Q8.</strong> "var globalVar = ""xyz""; <br>
+        <br>
+        (function outerFunc(outerArg) {<br>
+            var outerVar = 'a';<br>
+            <br>
+            (function innerFunc(innerArg) {<br>
+            var innerVar = 'b';<br>
+            <br>
+            console.log(<br>
+                ""outerArg = "" + outerArg + ""\n"" +<br>
+                ""innerArg = "" + innerArg + ""\n"" +<br>
+                ""outerVar = "" + outerVar + ""\n"" +<br>
+                ""innerVar = "" + innerVar + ""\n"" +<br>
+                ""globalVar = "" + globalVar);<br>
+                <br>
+            })(456);<br>
+        })(123);"</h3>
+    <p><strong>Ans.</strong>[Output:<br>
+        1. outerArg =123 <br>
+        2. innerArg= 456 <br>
+        3. outervar= a <br>
+        4. innervar= b <br>
+        5. globalVar= xyz]</div></p><p>Every variable and function is assigned with respected value</p>
+</body>
+
+</html>
